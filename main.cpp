@@ -40,6 +40,7 @@ print_in_binary (uint8_t byte) {
     for (uint8_t bit = 7; bit > 0; bit--) {
         cout << bit_digit(byte, bit);
     }
+    cout << bit_digit(byte,0);
 }
 int main () {
     assert(nibble_to_hex(0x0) == '0');
@@ -58,10 +59,7 @@ int main () {
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
-    uint32_t u32 = 0x42;
-    cout << "u32 bytes: ";
-    print_in_hex(&u32, sizeof(u32));
-    cout << '\n';
+   print_in_binary(3);
     return 0;
 }
 
