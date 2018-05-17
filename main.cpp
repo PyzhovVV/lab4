@@ -24,6 +24,10 @@ print_in_hex (const void* data, size_t size) {
         }
     }
 }
+const uint8_t*
+as_bytes(const void* data) {
+    return reinterpret_cast<const uint8_t*>(data);
+}
 int main () {
     assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
@@ -41,9 +45,10 @@ int main () {
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
-    print_in_hex(234);
-    print_in_hex(0xff);
-    print_in_hex(0xab);
+    uint32_t u32 = 0x42;
+    cout << "u32 bytes: ";
+    print_in_hex(&u32, sizeof(u32));
+    cout << '\n';
     return 0;
 }
 
